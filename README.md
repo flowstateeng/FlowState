@@ -69,7 +69,7 @@ However, this repository also contains other items needed to create a basic web 
 * **Johnathan Chivington:** [Web](https://chivington.net) or [GitHub](https://github.com/chivington)
 
 ## Contributing
-Not currently accepting outside contributors, but feel free to use as you wish.
+Not currently accepting outside contributors, but feel free to use and modify as you wish.
 
 ## License
 There is currently no license associated with this content.
