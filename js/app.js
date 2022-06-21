@@ -144,7 +144,7 @@ const Modules = {
       `,
       header_left: `display: flex; flex-direction: row; justify-content: flex-start; align-items: center;`,
       header_right: `display: flex; flex-direction: row; justify-content: flex-end; align-items: center;`,
-      icon: `margin: 0 0 0 1em; padding: 0; height: 4em; width: 4em; cursor:pointer;`,
+      icon: `margin: 0 0 0 1em; padding: 0; height: 3.75em; width: 4em; cursor:pointer;`,
       super: `font-size: 0.9em; color: ${theme.header_txt}; margin: -1.25em 0 0 0.25em;`,
       menu_btn: `margin: 1em 1.5em; height: 2.5em; width: 2.5em; cursor:pointer; ${open_action ? `animation: menu_btn_opening 300ms ease-in-out 1 forwards;` : (close_action ? (last_action==`REFRESH_THREADS`?``:`animation: menu_btn_closing 300ms ease-in-out 1 forwards;`) : ``)}`,
       header_menu: `display: flex; flex-direction: row; justify-content: center; align-items: center; flex-wrap: wrap; margin: 0; padding: 0;`,
