@@ -12,6 +12,7 @@ A super minimalistic combined UI framework &amp; state management engine I devel
 The state management portion can also be used alone to simplify CLI applications, backend services, and other contexts where a UI is not required or wanted.
 
 See [Components](https://github.com/chivington/Unity/tree/master#components) below for details.
+See [chivington.github.io](https://chivington.github.io) for a demo.
 
 ![Build Status](https://img.shields.io/badge/build-Stable-green.svg)
 ![License](https://img.shields.io/badge/license-NONE-lime.svg)
