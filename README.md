@@ -3,6 +3,9 @@
 </p>
 
 # Unity UI
+![Build Status](https://img.shields.io/badge/build-Stable-green.svg)
+![License](https://img.shields.io/badge/license-NONE-lime.svg)
+
 A super minimalistic combined UI framework &amp; state management engine I developed, based on React &amp; Redux. The minimalistic nature is designed for:
 
 1. Extremely fast load times in web browsers.
@@ -12,9 +15,6 @@ A super minimalistic combined UI framework &amp; state management engine I devel
 The state management portion can also be used alone to simplify CLI applications, backend services, and other contexts where a UI is not required or wanted.
 
 See [Components](https://github.com/chivington/Unity/tree/master#components) below for details.
-
-![Build Status](https://img.shields.io/badge/build-Stable-green.svg)
-![License](https://img.shields.io/badge/license-NONE-lime.svg)
 <br/><br/><br/>
 
 ## Contents
