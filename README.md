@@ -57,7 +57,7 @@ The Unity UI framework itself consists of:
 1. A barebones UI generation component inspired by React
 2. A state management engine inspired by Redux.
 
-
+<br/>
 However, this repository also contains other items needed to create a basic web app using the Unity UI framework. These include:
 
 1. A few views most websites typically contain (Home, About, Contact).
