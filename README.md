@@ -53,20 +53,17 @@ Feel free to ask me questions on [GitHub](https://github.com/chivington) or by [
 
 ## Components
 The Unity UI framework itself consists of:
-
 1. A barebones UI generation component inspired by React
 2. A state management engine inspired by Redux.
 
-<br/>
 However, this repository also contains other items needed to create a basic web app using the Unity UI framework. These include:
-
 1. A few views most websites typically contain (Home, About, Contact).
 2. A few custom modules most web apps typically contain (Header, Menu, Footer, Router)
 3. A CSS file for styling and animations.
 4. A font directory containing one font I like (typically used on iOS devices)
 5. A directory of placeholder images & icons.
 6. A few items needed to make your web app function as a native app when added to a mobile homescreen (browserconfig.xml, site.webmanifest)
-
+<br/>
 
 ## Authors
 * **Johnathan Chivington:** [Web](https://chivington.net) or [GitHub](https://github.com/chivington)
