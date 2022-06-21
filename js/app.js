@@ -289,7 +289,7 @@ const Modules = {
     };
 
     const copy = E('div', {style: st.copy}, [
-      E('div', {style: st.copy_left}, [E('p', {style: st.copy_txt}, [`Copyright © 2021 chivington.net`])]),
+      E('div', {style: st.copy_left}, [E('p', {style: st.copy_txt}, [`Copyright © 2022 mydomain.com`])]),
       E('div', {style: st.copy_right}, [E('img', {src:icons.app.usa,alt:`USA Icon`,style: st.usa}, ['United States'])])
     ]);
 
