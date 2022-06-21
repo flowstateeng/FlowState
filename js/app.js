@@ -1,8 +1,8 @@
 // --------------------------------------------------------------------------------------------
 // Author: Johnathan Chivington
-// Project: Personal blog, resume and research portfolio.
-// Description: Personal web application built in my custom UI/UX framework, Unity.
-// Version: 2.0.0 - (production - see README.md)
+// Project: chivington.github.io
+// Description: Demo Unity UI web app.
+// Version: 1.0.0 - (production - see README.md)
 // License: None
 // --------------------------------------------------------------------------------------------
 
@@ -35,8 +35,6 @@ const Unity = {
       if (!!history_length) history = (history.length == history_length) ? [...history.slice(1), state] : [...history, state];
       state = rootReducer(state, action);
       if (logActions) logActions('after', state, action);
-
-      if (!!cacheChat.status && action.type !== '@@INIT') cacheChat.updateCache(state.userState.chatState);
 
       if (listenerBypass && listenerBypass(action.type)[0])
         listeners.forEach(listener => listenerBypass(action.type).forEach(bypassName => {
@@ -86,7 +84,7 @@ const Unity = {
     root.appendChild(component(store));
   },
   initialize: function(app_root,load_screen_root,blueprint,reducers,middlewares) {
-    const app_title = blueprint.user.name ? blueprint.user.name : 'Unity Application';
+    const app_title = blueprint.app.title ? blueprint.app.title : 'Unity Application';
     document.title = `${app_title} | Home`;
     if (!app_root) Unity.terminate(app_root,`No Application Root supplied...`);
     if (!blueprint) Unity.terminate(app_root,`No Blueprint supplied...`);
@@ -117,8 +115,8 @@ const Modules = {
     const lastAction = state.appState.historyState.actions.slice(-1)[0];
     const st = {router: `position:fixed; top:0; right:0; bottom:0; left:0; overflow:hidden; z-index:5;`};
     const selected = mapState[current]?mapState[current]:mapState['DEFAULT'];
-    const animation = (lastAction=='NAV_TO' && !sameView || animateActions.includes(lastAction)) ? `animation:viewSlideIn 250ms 1 forwards;` : ``;
-    document.title = `${state.userState.infoState.name} | ${selected.title}`;
+    const animation = (lastAction=='NAV_TO' && !sameView) ? `animation:viewSlideIn 250ms 1 forwards;` : ``;
+    document.title = `Unity Web App | ${selected.title}`;
     return Unity.element('div', {style: st.router}, [Modules.View(store, selected.view, animation)]);
   },
   Header: function(store) {
@@ -128,7 +126,7 @@ const Modules = {
     const { icons } = Assets.imgs;
     const { current, previous } = menuState;
     const dark_theme = uiState.themeState.selected == 'dark';
-    const icon_img = dark_theme ? icons.manifest.favicon_wht : icons.manifest.favicon;
+    const icon_img = icons.manifest.redux_no_bg;
     const menu_img = dark_theme ? (current == 'OPEN' ? icons.btns.close_wht : icons.btns.menu_wht)  : (current == 'OPEN' ? icons.btns.close_blk : icons.btns.menu_blk);
     const last_action = state.appState.historyState.actions.slice(-1)[0];
     const open_action = !!(previous == 'CLOSED' && current == 'OPEN');
@@ -219,7 +217,7 @@ const Modules = {
     }));
 
     const copy = E('div', {style: st.copy}, [
-      E('img',{src:icons.work.usa,alt:`USA Icon`,style: st.usa},[]),
+      E('img',{src:icons.app.usa,alt:`USA Icon`,style: st.usa},[]),
       E('p',{style: st.usa},['United States']),
       E('p',{style: st.copy_txt},['Copyright © 2021 chivington.net']),
     ]);
@@ -292,7 +290,7 @@ const Modules = {
 
     const copy = E('div', {style: st.copy}, [
       E('div', {style: st.copy_left}, [E('p', {style: st.copy_txt}, [`Copyright © 2021 chivington.net`])]),
-      E('div', {style: st.copy_right}, [E('img', {src:icons.work.usa,alt:`USA Icon`,style: st.usa}, ['United States'])])
+      E('div', {style: st.copy_right}, [E('img', {src:icons.app.usa,alt:`USA Icon`,style: st.usa}, ['United States'])])
     ]);
 
     return E('div', {style: st.footer}, [copy]);
@@ -334,7 +332,7 @@ const Views = {
 		const E = Unity.element;
 
 		const st = {
-			view:`display:flex; flex-direction:column; justify-content:flex-start; align-items:stretch; min-height:75%;`,
+			view:`display:flex; flex-direction:column; justify-content:flex-start; align-items:stretch; min-height:92%;`,
 			home: `display:flex; flex-direction:column; justify-content:flex-start; align-items:stretch; padding:0; width:100%; text-align:center; ${landing?'animation: app_fade_in 1000ms ease-in-out 1 forwards;':''}`,
 			intro: `display:flex; flex-direction:column; justify-content:flex-start; align-items:stretch; margin:${landscape?'13em 1em 2':'7em 1em 2'}em;`,
 			name: `margin:0 auto; color:${theme.lt_txt}; font-size:4em; font-weight:400;`,
@@ -409,7 +407,7 @@ const Views = {
 		const E = Unity.element;
 
 		const st = {
-			view:`display:flex; flex-direction:column; justify-content:flex-start; align-items:stretch; min-height:75%;`,
+			view:`display:flex; flex-direction:column; justify-content:flex-start; align-items:stretch; min-height:92%;`,
 			contact:`margin:${mode=="pc"?'9em 7em 5':(mode==lg_tab?'7em 5em 5':'5em 1em 3')}em; padding:1em; background-color:${theme.well}; display:flex; flex-direction:column; justify-content:flex-start; align-items:stretch;`,
 			title:`margin:0 1em; padding:0 0.5em; border-bottom:1pt solid ${theme.view_bdr}; text-align:center; color:${theme.view_txt};`,
 			intro:`margin:0; padding:0; text-align:center; color:${theme.view_txt};`,
@@ -495,7 +493,8 @@ const Assets = {
 				favicon_16:'/imgs/icons/manifest/favicon-16x16.png',
 				favicon_32:'/imgs/icons/manifest/favicon-32x32.png',
 				favicon:'/imgs/icons/manifest/favicon.ico',
-				favicon_wht:'/imgs/icons/manifest/favicon-wht.png',
+				redux:'/imgs/icons/manifest/redux.jpg',
+				redux_no_bg:'/imgs/icons/manifest/redux-no-bg.png',
 				mstile_150:'/imgs/icons/manifest/mstile-150x150.png',
 				safari_pinned_tab:'/imgs/icons/manifest/safari-pinned-tab.svg'
 			}
@@ -527,6 +526,7 @@ const Assets = {
 // --------------------------------------------------------------------------------------------
 const Blueprint = {
 	app: {
+		title: 'Unity Web App',
 		about: {},
 		history: {
 			actions: ['@@INIT'],

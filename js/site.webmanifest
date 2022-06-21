@@ -1,7 +1,7 @@
 {
-  "name": "Unity Web App",
-  "short_name": "Unity",
-  "description": "My cool new Unity web app",
+  "name": "chivington.net",
+  "short_name": "chivington.net",
+  "description": "Personal blog, research portfolio and resume in the Unity UI application framework - a custom, native-app-like web application framework I developed.",
   "icons": [
         {
             "src": "/imgs/icons/manifest/android-chrome-192x192.png",
