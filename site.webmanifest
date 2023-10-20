@@ -1,15 +1,17 @@
 {
-  "name": "Unity Web App",
-  "short_name": "Unity",
-  "description": "My cool new Unity web app",
+  "name": "FlowState Engineering",
+  "short_name": "FlowState",
+  "description": "Website for FlowState Engineering.",
+  "start_url": "https://flowstateengineering.xyz",
+  "id": "/",
   "icons": [
         {
-            "src": "/imgs/icons/manifest/android-chrome-192x192.png",
+            "src": "/public/imgs/manifest/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/imgs/icons/manifest/android-chrome-512x512.png",
+            "src": "/public/imgs/manifest/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }

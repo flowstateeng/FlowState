@@ -1,77 +1,52 @@
 <!DOCTYPE html>
 <html lang='en' dir='ltr'>
   <head>
-    <title id="App_TitleBar">Unity Web App</title>
+    <title id="App_TitleBar">FlowState Engineering</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
     <meta name="msapplication-TileColor" content="#2b5797">
     <meta name="theme-color" content="#ffffff">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="apple-touch-icon" sizes="180x180" href="/imgs/icons/manifest/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/imgs/icons/manifest/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/imgs/icons/manifest/favicon-32x32.png">
-    <link rel="mask-icon" href="/imgs/icons/manifest/safari-pinned-tab.svg" color="#5bbad5">
-    <link media="screen" rel="stylesheet" href="/css/only.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/imgs/manifest/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/imgs/manifest/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/imgs/manifest/favicon-32x32.png">
+    <link rel="mask-icon" href="/public/imgs/manifest/safari-pinned-tab.svg" color="#2b5797">
   </head>
+
+  <style>
+    @font-face { font-family: 'Avenir-Book'; src: url('/public/fonts/Avenir-Free/Avenir-Book.otf'); }
+    @font-face { font-family: 'Avenir-Light'; src: url('/public/fonts/Avenir-Free/Avenir-Light.otf'); }
+    @font-face { font-family: 'Avenir-Roman'; src: url('/public/fonts/Avenir-Free/Avenir-Roman.otf'); }
+    *::-webkit-scrollbar { width: 0; height: 0; }
+    *::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.1); }
+    *::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,0.1); outline: 1px solid rgba(0,0,0,0.1); }
+  </style>
 
   <body>
     <!-- LOADING SCREEN -->
-    <div id="Load_Screen_Root">
-      <div id="Load_Screen_Background">
-        <div class="lds-ring">
-          <div></div><div></div><div></div><div></div>
-        </div>
+    <div id="Load_Screen" style="position:fixed; left:0; right:0; top:0; bottom:0; width:100%; background-color:rgba(0,0,0,0.3);">
+      <div style="position:fixed; left:50%; top:50%; transform:translate(-50%, -50%); width:15em; background-color:#222;">
+        <div id="Progress_Bar" style="width:14.5em; height:3.5em; margin:0.25em; background-color:#7db;"></div>
       </div>
     </div>
 
     <!-- APP ROOT -->
-    <div id="App_Root">
-      <!-- STATIC APP HOME -->
-      <div style="position: fixed; top: 0; left: 0; height: 0%; width: 100%; margin: 0; padding: 0; z-index: 0;">
-        <!-- HEADER -->
-        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 5em; margin: 0; padding: 0; z-index: 90; display: flex; flex-direction: row; justify-content: flex-start; align-items: center; background-color: rgba(255,255,255,1); border-bottom: 1pt solid rgba(25,25,25,1); -webkit-box-shadow: 1pt 1pt 15pt 0 rgba(25,25,25,1);">
-          <img style="margin: 0 0 0 1em; padding: 0; height: 4em; width: 4em; cursor:pointer;" src="/imgs/icons/manifest/favicon.ico" alt="Unity Web App Icon">
-          <sup style="font-size: 0.9em; color: rgba(55,55,75,0.9); margin: -1.25em 0 0 0.25em;">JavaScript Detection...</sup>
-        </div>
-
-        <!-- VIEW -->
-        <div style="position: fixed; top: 0; right: 0; bottom: 0; left: 0; margin: 0; padding: 0; overflow-x: hidden; overflow-y: scroll; z-index: 10; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)); background-position: center; background-size: cover; background-repeat: no-repeat; -webkit-overflow-scrolling: touch; content="minimal-ui">
-          <!-- CONTENT -->
-          <div style="display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; padding: 0; width: 100%; text-align: center; animation: app_fade_in 900ms ease-in-out 1 forwards;">
-            <div style="display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; margin: 10em 1em 3em;">
-              <h1 style="margin: 0.1em 0; color: #fff; font-size: 5em; font-weight: 500;">My Unity Web App</h1>
-              <h2 style="margin: 0.1em; color: #fff; font-size: 2.5em; font-weight: 500;">Welcome to my Unity new web app.</h2>
-            </div>
-          </div>
-
-          <!-- FOOTER -->
-          <div style="display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; padding: 1em; margin: 0; z-index: 75; background-color: rgba(255,255,255,1); border-top: 1pt solid rgba(25,25,25,0.9);">
-            <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; border-top: 1px solid rgba(25,25,25,0.9); margin: 1em 0 0; padding: 1em 2em 0; font-size: 1em;">
-              <div style="display: flex; flex-direction: row; justify-content: flex-start; align-items: flex-start; margin: 0; padding: 0;">
-                <p style="font-size: 1em; color: rgba(55,55,75,0.9);">Copyright © 2022 mydomain.com Inc. All rights reserved.</p>
-              </div>
-              <div style="display: flex; flex-direction: row; justify-content: flex-end; align-items: flex-start; margin: 0; padding: 0; min-width: 30%;">
-                <img src="/imgs/icons/app/united-states.svg" alt="USA Icon " style="height: 1.5em; margin: 0 0.5em; color: rgba(55,55,75,0.9);">
-                <p style="height: 1.5em; margin: 0 0.5em; color: rgba(55,55,75,0.9);">United States</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- NETWORK -->
-        <div style="position: absolute; top: 5em; left: 0; width: 100%; margin: 0; padding: 0.75em; z-index: 85; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #7e7; border-bottom: #7a7; font-size: 1em; color: #252525; font-weight: bold; animation: show_network 400ms ease-in 1 forwards;">We're checking your browser for JavaScript...</div>
-      </div>
+    <div id="App_Root" style="margin:2em; font-family:Roboto Condensed, sans-serif;">
+      <h3 style="font-size:2.5em; font-weight:heavy;">Welcome to FlowState Engineering.</h3>
+      <h2 style="font-size:1.5em; font-weight:light;">Our application is loading...</h2>
     </div>
 
-    <!-- Display Loading Screen -->
-    <script type="text/javascript">
-      const status = (msg) => {document.title = msg; console.log(msg);};
-      status(`Unity Web App | Static application initialized`);
-      status(`Unity Web App | Testing Javascript...`);
-      status(`Unity Web App | Retrieving application...`);
-      status(`Unity Web App | Displaying load screen...`);
-      document.getElementById('Load_Screen_Root').style.visibility = 'visible';
+    <!-- APPLICATION -->
+    <script>
+      console.log('FlowState Engineering | Loading application...')
+
+      const progress_bar = document.getElementById("Progress_Bar")
+      progress_bar.animate([
+        { width: '1em' },
+        { width: '14.5em' },
+      ],{ duration: 1751, iterations: 1, easing: "cubic-bezier(0.42, 0, 0.58, 1)" })
     </script>
-    <script src="/js/app.js" charset="utf-8"></script>
+    <script src="/application/HOME.js" charset="utf-8"></script>
   </body>
 </html>
