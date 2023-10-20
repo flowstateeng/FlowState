@@ -1,5 +1,5 @@
 <p align="center">
-  <img width='350' src='https://github.com/johnathanalyst/FlowState/blob/main/imgs/logo.jpg' alt='FlowState UI Logo'/>
+  <img width='350' src='https://github.com/johnathanalyst/FlowState/blob/main/imgs/logo.png' alt='FlowState UI Logo'/>
 </p>
 
 # FlowState UI
